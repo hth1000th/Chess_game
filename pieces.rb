@@ -94,5 +94,6 @@ class Pieces
   end
 
   def valid_chess_move?(piece, from_location, to_location)
+    true
   end
 end

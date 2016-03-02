@@ -1,12 +1,13 @@
 require 'gosu'
 require 'rubygems'
-require './board.rb'
-require './pieces.rb'
+require './library/board.rb'
+require './library/pieces.rb'
 
 class GameWindow < Gosu::Window
   def initialize
     super 560,560,false
     self.caption = "Chess Game"
+
 
     @board = Board.new(self)
     @pieces = Pieces.new(self)

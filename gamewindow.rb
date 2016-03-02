@@ -11,20 +11,30 @@ class GameWindow < Gosu::Window
     @board = Board.new(self)
     @pieces = Pieces.new(self)
 
-    @current_piece = nil
-  end
-
-  def update
-    if self.button_down?(Gosu::MsLeft) && (0..70).include?(mouse_x) && (0..70).include?(mouse_y)
-      @current_piece = @pieces.black_pieces["L_black_rook"]
-    end
+    @current_piece = ""
+    @click_to_move = 0
+    @hash = Hash.new
   end
 
   def draw
     @board.draw_board
     @pieces.draw_pieces
-    if @current_piece != nil
-      @current_piece.draw_rot(35,175,0,0)
+  end
+
+  def button_down(id)
+    if (id == Gosu::MsLeft) && @click_to_move%2 == 0
+      @pieces.pieces.each { |key,value|
+        if value[0] == @pieces.mouse_to_board(mouse_x) && value[1] == @pieces.mouse_to_board(mouse_y)
+          @current_piece = key
+          break
+        end }
+      @click_to_move += 1
+    elsif (id == Gosu::MsLeft) && @click_to_move%2 != 0
+      @current_x = @pieces.mouse_to_board(mouse_x)
+      @current_y = @pieces.mouse_to_board(mouse_y)
+      @pieces.pieces[@current_piece] = [@current_x, @current_y]
+      @click_to_move += 1
+      @current_piece = nil
     end
   end
 end

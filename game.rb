@@ -6,13 +6,13 @@ class Game
   @@num = 0
 
   def initialize()
-    @board = Board.new
-    @pieces = Pieces.new
+    #@board = Board.new()
+    #@pieces = Pieces.new()
   end
 
   def setup()
-    @board.draw_board # to create a chess board (8x8)
-    @pieces.draw_pieces # to place the pieces at the starting position
+    #@board.draw_board # to create a chess board (8x8)
+    #@pieces.draw_pieces # to place the pieces at the starting position
   end
 
   def promote(location, piece)

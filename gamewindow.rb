@@ -1,7 +1,7 @@
 require 'gosu'
 require 'rubygems'
-require './library/board.rb'
-require './library/pieces.rb'
+require './board.rb'
+require './pieces.rb'
 
 class GameWindow < Gosu::Window
   def initialize
@@ -39,6 +39,3 @@ class GameWindow < Gosu::Window
     end
   end
 end
-
-w = GameWindow.new
-w.show

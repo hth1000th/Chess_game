@@ -15,17 +15,6 @@ class Game
     @pieces.draw_pieces # to place the pieces at the starting position
   end
 
-  def remove(piece, from_location)
-  end
-
-  def add(piece, to_location)
-  end
-
-  def move()
-    remove(piece, from_location)
-    add(piece, to_location)
-  end
-
   def promote(location, piece)
     if (piece =~ /^(king|queen|bishop|knight|rook|pawn)$/i)
       raise "Invalid input"
@@ -53,8 +42,5 @@ class Game
 
   def check?()
     true
-  end
-
-  def valid_chess_move?(location1, location2)
   end
 end

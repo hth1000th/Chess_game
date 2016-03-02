@@ -6,7 +6,7 @@ Make a project of chess game for CPTR125
 images sources (chess pieces): https://openclipart.org
 
 ### How to run the code
-Run gamewindow.rb in ruby
+Run *run_game.rb* in ruby
 
 ### What aspects of the game do
 - Display the board (8x8) <br>

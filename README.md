@@ -22,6 +22,3 @@ Run *run_game.rb* in ruby
 - Promote a pawn to another piece. <br>
 - Check who wins. <br>
 - Check if game ties or not. <br>
-
-
-

@@ -1,8 +1,22 @@
+require './king.rb'
+require './rook.rb'
+require './bishop.rb'
+require './queen.rb'
+require './knight.rb'
+require './pawn.rb'
+
 class Pieces
   attr_accessor :pieces
   def initialize(window)
     @window = window
     @width = 70
+    @king = King.new
+    @rook = Rook.new
+    @bishop = Bishop.new
+    @queen = Queen.new
+    @knight = Knight.new
+    @pawn = Pawn.new
+
     @black_rook = Gosu::Image.new(@window, "Images/black_rook.png", true)
     @black_knight = Gosu::Image.new(@window, "Images/black_knight.png", true)
     @black_bishop = Gosu::Image.new(@window, "Images/black_bishop.png", true)
@@ -93,7 +107,28 @@ class Pieces
     end
   end
 
-  def valid_chess_move?(piece, from_location, to_location)
-    true
+  def valid_chess_move?(piece, from_x, from_y, to_x, to_y)
+    if piece == "black_king" || piece == "white_king"
+      @king.rule_to_move(from_x, from_y, to_x, to_y)
+    elsif piece == "L_black_rook" || piece == "R_black_rook" ||
+      piece == "L_white_rook" || piece == "R_white_rook"
+      @rook.rule_to_move(from_x, from_y, to_x, to_y)
+    elsif piece == "L_black_bishop" || piece == "R_black_bishop" ||
+      piece == "L_white_bishop" || piece == "R_white_bishop"
+      @bishop.rule_to_move(from_x, from_y, to_x, to_y)
+    elsif piece == "black_queen" || piece == "white_queen"
+      @queen.rule_to_move(from_x, from_y, to_x, to_y)
+    elsif piece == "L_black_knight" || piece == "R_black_knight" ||
+      piece == "L_white_knight" || piece == "R_white_knight"
+      @knight.rule_to_move(from_x, from_y, to_x, to_y)
+    elsif piece == "black_pawn1" || piece == "black_pawn2" ||
+      piece == "black_pawn3" || piece == "black_pawn4" || piece == "black_pawn5" ||
+      piece == "black_pawn6" || piece == "black_pawn7" || piece == "black_pawn8"
+      @pawn.rule_to_move(from_x, from_y, to_x, to_y)
+    elsif piece == "white_pawn1" || piece == "white_pawn2" ||
+      piece == "white_pawn3" || piece == "white_pawn4" || piece == "white_pawn5" ||
+      piece == "white_pawn6" || piece == "white_pawn7" || piece == "white_pawn8"
+      @pawn.rule_to_move(from_x, from_y, to_x, to_y)
+    end
   end
 end

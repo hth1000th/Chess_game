@@ -14,9 +14,9 @@ Run *run_game.rb* in ruby
 - Move a piece to wherever a player wants to move. <br>
     - First, click on a piece that a player wants to move. <br>
     - Then, click on an empty square where a player wants to move the piece to. <br>
+    - Check if the move is valid for specific piece. <br>
 
 ### What aspects of the game don't work
-- Check if the move is valid for specific piece. <br>
 - Check <br>
 - Checkmate <br>
 - Promote a pawn to another piece. <br>

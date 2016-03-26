@@ -31,7 +31,11 @@ class GameWindow < Gosu::Window
     elsif (id == Gosu::MsLeft) && @click_to_move%2 != 0
       @current_x = @pieces.mouse_to_board(mouse_x)
       @current_y = @pieces.mouse_to_board(mouse_y)
-      @pieces.pieces[@current_piece] = [@current_x, @current_y]
+      if @pieces.valid_chess_move?(@current_piece, @pieces.pieces[@current_piece][0], @pieces.pieces[@current_piece][1], @current_x, @current_y)
+        @pieces.pieces[@current_piece] = [@current_x, @current_y]
+      else
+        p "Invalid move"
+      end
       @click_to_move += 1
       @current_piece = nil
     end
